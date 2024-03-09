@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://xmeu22k8fwo7"
+path="res://.godot/imported/wpn_tg06_control_staff_shoot_fail_01 (mp3cut.net).wav-e75e2f84ea23f288cbcc230c13fa5a82.sample"
+
+[deps]
+
+source_file="res://assets/sfx/wpn_tg06_control_staff_shoot_fail_01 (mp3cut.net).wav"
+dest_files=["res://.godot/imported/wpn_tg06_control_staff_shoot_fail_01 (mp3cut.net).wav-e75e2f84ea23f288cbcc230c13fa5a82.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

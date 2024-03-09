@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqrs58dl8fu3b"]
+
+[ext_resource type="FontFile" uid="uid://brxoyw8tk252b" path="res://assets/monogram.ttf" id="1_68js4"]
+[ext_resource type="Texture2D" uid="uid://c81snf1ujsmky" path="res://assets/meter/blue0.png" id="2_nkc2l"]
+[ext_resource type="Script" path="res://MeterButton.gd" id="3_kuk6n"]
+[ext_resource type="Texture2D" uid="uid://fcd77mrx04ku" path="res://assets/meter/orange0.png" id="4_syc5n"]
+[ext_resource type="Texture2D" uid="uid://blo5y88ofs7sx" path="res://assets/meter/red0.png" id="5_pirbe"]
+[ext_resource type="Texture2D" uid="uid://d1ebof3rt3c31" path="res://assets/meter/yellow0.png" id="6_1gqrd"]
+
+[node name="MeterGame" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1149.0
+offset_bottom = 645.0
+color = Color(0.784314, 0.784314, 0.784314, 1)
+
+[node name="TopBar" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="TopBar"]
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 1088.0
+offset_bottom = 80.0
+color = Color(0, 0, 0, 1)
+
+[node name="Bar" type="ColorRect" parent="TopBar"]
+offset_left = 72.0
+offset_top = 40.0
+offset_right = 576.0
+offset_bottom = 72.0
+color = Color(0.141176, 0.6, 0, 1)
+
+[node name="0" type="Label" parent="TopBar"]
+offset_left = 64.0
+offset_top = 80.0
+offset_right = 104.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_68js4")
+theme_override_font_sizes/font_size = 36
+text = "0"
+
+[node name="5000" type="Label" parent="TopBar"]
+offset_left = 1032.0
+offset_top = 80.0
+offset_right = 1088.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_68js4")
+theme_override_font_sizes/font_size = 36
+text = "5000"
+
+[node name="2500" type="Label" parent="TopBar"]
+offset_left = 544.0
+offset_top = 80.0
+offset_right = 600.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_68js4")
+theme_override_font_sizes/font_size = 36
+text = "2500"
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Blue" type="Button" parent="Buttons"]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 376.0
+offset_right = 88.0
+offset_bottom = 448.0
+scale = Vector2(3.5, 3.5)
+icon = ExtResource("2_nkc2l")
+flat = true
+script = ExtResource("3_kuk6n")
+base_icon = "res://assets/meter/blue0.png"
+switch_icon = "res://assets/meter/blue1.png"
+
+[node name="Orange" type="Button" parent="Buttons"]
+texture_filter = 1
+offset_left = 304.0
+offset_top = 376.0
+offset_right = 376.0
+offset_bottom = 448.0
+scale = Vector2(3.5, 3.5)
+icon = ExtResource("4_syc5n")
+flat = true
+script = ExtResource("3_kuk6n")
+base_icon = "res://assets/meter/orange0.png"
+switch_icon = "res://assets/meter/orange1.png"
+
+[node name="Red" type="Button" parent="Buttons"]
+texture_filter = 1
+offset_left = 592.0
+offset_top = 376.0
+offset_right = 664.0
+offset_bottom = 448.0
+scale = Vector2(3.5, 3.5)
+icon = ExtResource("5_pirbe")
+flat = true
+script = ExtResource("3_kuk6n")
+base_icon = "res://assets/meter/red0.png"
+switch_icon = "res://assets/meter/red1.png"
+
+[node name="Yellow" type="Button" parent="Buttons"]
+texture_filter = 1
+offset_left = 880.0
+offset_top = 376.0
+offset_right = 952.0
+offset_bottom = 448.0
+scale = Vector2(3.5, 3.5)
+icon = ExtResource("6_1gqrd")
+flat = true
+script = ExtResource("3_kuk6n")
+base_icon = "res://assets/meter/yellow0.png"
+switch_icon = "res://assets/meter/yellow1.png"

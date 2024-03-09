@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdcmrl25olupc"]
+
+[ext_resource type="Script" path="res://scripts/BalloonPopping.gd" id="1_m0j13"]
+[ext_resource type="Texture2D" uid="uid://do2rjb5ppml5f" path="res://assets/balloon/tile000.png" id="2_hmh3j"]
+[ext_resource type="PackedScene" uid="uid://n5ed34khc0cf" path="res://laugh_track.tscn" id="2_thqqx"]
+[ext_resource type="FontFile" uid="uid://brxoyw8tk252b" path="res://assets/monogram.ttf" id="4_xwl0n"]
+[ext_resource type="Texture2D" uid="uid://cpsra4tw3xquj" path="res://assets/balloon/bank0.png" id="5_afjo6"]
+[ext_resource type="Texture2D" uid="uid://dvownc7n6lk41" path="res://assets/balloon/pump0.png" id="6_t2fq2"]
+
+[sub_resource type="GDScript" id="GDScript_reh8x"]
+script/source = "extends Sprite2D
+
+var count = 1
+
+func _ready():
+	texture = load(\"res://assets/balloon/tile000.png\")
+
+func _process(delta):
+	pass
+	#if Input.is_action_just_pressed(\"pump\"):
+		#if count < 7:
+			#texture = load(\"res://assets/balloon/tile00\" + str(count) + \".png\")
+"
+
+[node name="BalloonPopping" type="Node2D"]
+script = ExtResource("1_m0j13")
+
+[node name="LaughTrack" parent="." instance=ExtResource("2_thqqx")]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1149.0
+offset_bottom = 645.0
+color = Color(0.784314, 0.784314, 0.784314, 1)
+
+[node name="Balloon" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(579, 314)
+scale = Vector2(5, 5)
+texture = ExtResource("2_hmh3j")
+script = SubResource("GDScript_reh8x")
+
+[node name="lb_currentvalue" type="Label" parent="."]
+offset_left = 130.0
+offset_top = 18.0
+offset_right = 412.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("4_xwl0n")
+theme_override_font_sizes/font_size = 36
+
+[node name="lb_totalvalue" type="Label" parent="."]
+offset_left = 709.0
+offset_top = 21.0
+offset_right = 991.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("4_xwl0n")
+theme_override_font_sizes/font_size = 36
+
+[node name="lb_balloonsleft" type="Label" parent="."]
+offset_left = 709.0
+offset_top = 21.0
+offset_right = 991.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("4_xwl0n")
+theme_override_font_sizes/font_size = 36
+
+[node name="PopTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="BankButton" type="Button" parent="."]
+texture_filter = 1
+offset_left = 696.0
+offset_top = 424.0
+offset_right = 832.0
+offset_bottom = 496.0
+scale = Vector2(2.5, 2.5)
+icon = ExtResource("5_afjo6")
+flat = true
+
+[node name="PumpButton" type="Button" parent="."]
+texture_filter = 1
+offset_left = 130.0
+offset_top = 424.0
+offset_right = 266.0
+offset_bottom = 496.0
+scale = Vector2(2.5, 2.5)
+icon = ExtResource("6_t2fq2")
+flat = true
+
+[connection signal="timeout" from="PopTimer" to="." method="_on_pop_timer_timeout"]
+[connection signal="button_down" from="BankButton" to="." method="_on_bank_button_button_down"]
+[connection signal="button_up" from="BankButton" to="." method="_on_bank_button_button_up"]
+[connection signal="pressed" from="BankButton" to="." method="_on_bank_button_pressed"]
+[connection signal="button_down" from="PumpButton" to="." method="_on_pump_button_button_down"]
+[connection signal="button_up" from="PumpButton" to="." method="_on_pump_button_button_up"]
+[connection signal="pressed" from="PumpButton" to="." method="_on_pump_button_pressed"]
